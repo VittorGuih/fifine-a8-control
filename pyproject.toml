@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fifine-a8-control"
+version = "0.1.0"
+description = "Experimental Windows controller for the FIFINE A8 physical mute and LED"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Vittor Silva"}]
+dependencies = ["PySide6-Essentials>=6.8,<7", "hidapi>=0.14,<0.16"]
+classifiers = ["Development Status :: 3 - Alpha", "Operating System :: Microsoft :: Windows", "Programming Language :: Python :: 3", "Topic :: Multimedia :: Sound/Audio"]
+
+[project.urls]
+Homepage = "https://github.com/VittorGuih/fifine-a8-control"
+Issues = "https://github.com/VittorGuih/fifine-a8-control/issues"
+
+[project.gui-scripts]
+fifine-a8-control = "fifine_a8_control.ui:main"
+
+[project.scripts]
+fifine-a8-inspect = "fifine_a8_control.diagnostics:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fifine_a8_control = ["native/*.cs", "native/*.ps1"]
